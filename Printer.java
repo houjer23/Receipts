@@ -1,11 +1,7 @@
 public class Printer { // Class for printing out the ticket
-	private String[] items;
-	private double[] prices;
-	private int[] buy;
-	public Printer(String[] items, double[] prices, int[] buy) { // Construction of the class
-		this.items = items;
-		this.prices = prices;
-		this.buy = buy;
+	private Order userOrder;
+	public Printer(Order userOrder) { // Construction of the class
+		this.userOrder = userOrder;
 	}
 	public void print() { // Method used for printing the ticket
 		System.out.println("\n****************************************");
@@ -16,18 +12,18 @@ public class Printer { // Class for printing out the ticket
 		System.out.println();
 		double sum = 0;
 		for (int i = 0; i < 5; i ++) {
-			if (buy[i] == 0) {
+			if (userOrder.buy[i] == 0) {
 				continue;
 			}
-			System.out.print("|" + buy[i]);
+			System.out.print("|" + userOrder.buy[i]);
 			for (int j = 0; j < 10; j ++) {
 				System.out.print(" ");
 			}
-			System.out.print(items[i]);
-			for (int j = 0; j < 21 - items[i].length(); j ++) {
+			System.out.print(userOrder.items[i]);
+			for (int j = 0; j < 21 - userOrder.items[i].length(); j ++) {
 				System.out.print(" ");
 			}
-			double priceSum = buy[i] * prices[i];
+			double priceSum = userOrder.buy[i] * userOrder.prices[i];
 			sum += priceSum;
 			if (priceSum < 10) {
 				System.out.println("$ " + priceSum + "|");
