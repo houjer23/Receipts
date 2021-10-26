@@ -5,7 +5,7 @@
 import java.util.Scanner;
 public class Kiosk { // The main class, gets input and print out ticket
 	public static void main(String[] args) { // Where the code runs
-		System.out.println("Pleace choose how many items do you want to buy");
+		System.out.println("\nPleace choose how many items do you want to buy");
 		Order userOrder = new Order();
 		userOrder.buy();
 		Printer ticket = new Printer(userOrder);
